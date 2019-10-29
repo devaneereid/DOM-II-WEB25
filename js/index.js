@@ -9,12 +9,12 @@ window.addEventListener("resize", () => {
 });
 
 
-// Click
-const clickTest = document.querySelector(".text-content");
+// Click (Chnages Background Color of Div)
+const clickTest = document.querySelector("body > div > section.content-section.inverse-content");
 
 clickTest.addEventListener('click', (event) => {
-    clickTest.style.backgroundColor = "#FF0080";
-
+    clickTest.style.backgroundColor = "#e7e8c1";
+    clickTest.style.opacity = 0.8;
     console.log(event);
     event.stopPropagation();
 });
@@ -26,11 +26,16 @@ document.querySelectorAll(".nav").forEach(el => {
 });
 
 
-// Double Click
+// Double Click (Changes Images)
 const changeImg = document.querySelector(":nth-child(2) > div.img-content > img");
 changeImg.addEventListener("dblclick", () => {
     changeImg.src = "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
 });
+const changeImg2 = document.querySelector("body > div > section.content-section.inverse-content > div.img-content > img");
+changeImg2.addEventListener("dblclick", () => {
+    changeImg2.src = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60";
+});
+
 
 
 // KeyDown
@@ -92,7 +97,7 @@ newDes.addEventListener('mouseenter', () => {
 })
 
 
-// Removed Last Button 
+// Remove (Removed Last Button)
 var removeObj = document.querySelector("section.content-pick > div:nth-child(3) > div");
 removeObj.style.display = 'none';
 
@@ -105,17 +110,19 @@ stopLink.addEventListener("click", (event) => {
     event.preventDefault();
 })
 
-// // Wheel  - extra element (not working yet)
-// wheelTest(e => {
-//     var text = document.getElementById('body > div');
 
-//     if (e.deltaY < 0) {
-//         text.innerHTML = 'Scrolling Up ⬆️';
-//     }
-//     else if (e.deltaY < 0) {
-//         text.innerHTML = 'Scrolling Down ⬇️';
-//     }
-// })
-// window.addEventListener('mousewheel', wheelTest, false);
-// window.addEventListener('wheel', wheelTest, false);
+
+// Wheel  - Another Extra Element (not working yet)
+wheelTest(element => {
+    var text = document.getElementById('body > div');
+
+    if (element.deltaY < 0) {
+        text.innerHTML = 'Scrolling Up ⬆️';
+    }
+    else if (element.deltaY < 0) {
+        text.innerHTML = 'Scrolling Down ⬇️';
+    }
+})
+window.addEventListener('mousewheel', wheelTest, false);
+window.addEventListener('wheel', wheelTest, false);
 
