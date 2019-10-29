@@ -92,6 +92,7 @@ const newDes = document.querySelector('body > div > header > p');
 newDes.addEventListener('mouseenter', () => {
     newDes.style.fontWeight = 'bold';
     newDes.style.fontSize = '4rem';
+    newDes.style.textAlign = 'center';
     newDes.textContent= "Take Your Vacation Today!";
     newDes.style.fontFamily = 'Indie Flower', cursive;
 })
