@@ -37,11 +37,13 @@ changeImg.addEventListener("dblclick", () => {
 const body = document.querySelector('body');
 body.addEventListener('keydown', (event) => {
     body.style.backgroundColor="#f0d2fc";
+    event.stopPropagation();
 })
 
 // KeyUp
 body.addEventListener('keyup', (event) => {
     body.style.backgroundColor="#afe0d3";
+    event.stopPropagation();
 })
 
 // Mouseover
@@ -55,7 +57,7 @@ navOver.addEventListener("mouseenter", (e) => {
 }, false);
 
 navOver.addEventListener("mouseover", (e) => {
-    event.target.style.color = "#66a4b3";
+    event.target.style.color = "#9b81a3";
 
     setTimeout(() => {
         event.target.style.color = "purple";
@@ -84,7 +86,9 @@ TweenMax.to("body > div > header > h2", 2, {
 const newDes = document.querySelector('body > div > header > p');
 newDes.addEventListener('mouseenter', () => {
     newDes.style.fontWeight = 'bold';
+    newDes.style.fontSize = '4rem';
     newDes.textContent= "Take Your Vacation Today!";
+    newDes.style.fontFamily = 'Indie Flower', cursive;
 })
 
 
@@ -94,19 +98,24 @@ removeObj.style.display = 'none';
 
 
 
-
-
-// Wheel  - extra element (not working yet)
-wheelTest(e => {
-    var text = document.getElementById('.body');
-
-    if (e.deltaY < 0) {
-        text.innerHTML = 'Scrolling Up ⬆️';
-    }
-    else if (e.deltaY < 0) {
-        text.innerHTML = 'Scrolling Down ⬇️';
-    }
+// Prevent Default
+const stopLink = document.querySelector("body > header > div > nav > a:nth-child(1)");
+stopLink.addEventListener("click", (event) => {
+    console.log("Stopped Link✋🏼");
+    event.preventDefault();
 })
-window.addEventListener('mousewheel', wheelTest, false);
-window.addEventListener('wheel', wheelTest, false);
+
+// // Wheel  - extra element (not working yet)
+// wheelTest(e => {
+//     var text = document.getElementById('body > div');
+
+//     if (e.deltaY < 0) {
+//         text.innerHTML = 'Scrolling Up ⬆️';
+//     }
+//     else if (e.deltaY < 0) {
+//         text.innerHTML = 'Scrolling Down ⬇️';
+//     }
+// })
+// window.addEventListener('mousewheel', wheelTest, false);
+// window.addEventListener('wheel', wheelTest, false);
 
